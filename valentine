@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💛</title>
+
+<style>
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#fff7e6;
+  font-family:Arial, sans-serif;
+}
+.card{
+  background:#fff;
+  padding:24px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+  width:420px;
+  max-width:92vw;
+}
+img{
+  width:100%;
+  border-radius:16px;
+  margin-bottom:18px;
+}
+h1{
+  font-size:22px;
+  margin-bottom:18px;
+}
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+}
+button{
+  font-size:18px;
+  padding:10px 18px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+  transition:transform .25s ease;
+}
+#yes{ background:#ffcc00; }
+#no{ background:#e6e6e6; }
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+  <img src="start.png">
+  <h1>Will you be my Valentine? 💛</h1>
+
+  <div class="buttons">
+    <button id="no">No 😢</button>
+    <button id="yes">Yes 💖</button>
+  </div>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const card = document.getElementById("card");
+
+let n = 1;
+let y = 1;
+
+noBtn.onclick = () => {
+  n *= 0.7;
+  y *= 1.25;
+  noBtn.style.transform = "scale(" + n + ")";
+  yesBtn.style.transform = "scale(" + y + ")";
+  if (n < 0.18) noBtn.remove();
+};
+
+yesBtn.onclick = () => {
+  card.innerHTML = `
+    <img src="end.png">
+    <h1>I love you ❤️</h1>
+  `;
+};
+</script>
+
+</body>
+</html>
